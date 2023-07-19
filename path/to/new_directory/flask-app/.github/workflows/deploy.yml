@@ -24,7 +24,7 @@ jobs:
 
       - name: Build and Deploy
         run: |
-          cd path/to/new_directory/flask-app
+          cd PDF-Reader/path/to/new_directory/flask-app
           python python-code.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
