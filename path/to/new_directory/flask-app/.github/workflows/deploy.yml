@@ -1,1 +1,30 @@
+name: Deploy to GitHub Pages
 
+on:
+  push:
+    branches:
+      - main  # Adjust the branch name if needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.0  # Replace 'x' with the desired Python version
+
+      - name: Install dependencies
+        run: |
+          pip install -r path/to/requirements.txt  # If you have any dependencies
+
+      - name: Build and Deploy
+        run: |
+          cd path/to/new_directory/flask-app
+          python python-code.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
